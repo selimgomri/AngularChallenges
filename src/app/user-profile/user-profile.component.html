@@ -1,0 +1,15 @@
+<div class="card">
+  <h1>Fiche de contact</h1>
+  <img [src]="user.photo" alt="Avatar" style="width: 100%" />
+  <div class="container">
+    <h4>Nom: {{ user.name }}</h4>
+    <h4>Prénom: {{ user.firstName }}</h4>
+    <h4 [hidden]="buttonDisplayAgeClicked">Age: {{ user.age }}</h4>
+    <p>{{ user.quote }}</p>
+    <input type="text" [(ngModel)]="user.quote" />
+  </div>
+
+  <div class="displayButton">
+    <button (click)="displayAge($event)">Afficher/Masquer mon âge</button>
+  </div>
+</div>
