@@ -4,12 +4,12 @@
   <div class="container">
     <h4>Nom: {{ user.name }}</h4>
     <h4>Prénom: {{ user.firstName }}</h4>
-    <h4 [hidden]="buttonDisplayAgeClicked">Age: {{ user.age }}</h4>
+    <h4 [hidden]="showAge">Age: {{ user.age }}</h4>
     <p>{{ user.quote }}</p>
     <input type="text" [(ngModel)]="user.quote" />
   </div>
 
-  <div class="displayButton">
+  <div class="display-button">
     <button (click)="displayAge($event)">Afficher/Masquer mon âge</button>
   </div>
 </div>
