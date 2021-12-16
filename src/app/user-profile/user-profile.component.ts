@@ -18,14 +18,9 @@ export class UserProfileComponent implements OnInit {
       'https://www.clipartmax.com/png/full/307-3078681_view-samegoogleiqdbsaucenao-1467773783956-funny-profile-pictures-for-steam.png',
     quote: '',
   };
+  showAge: boolean = true;
 
   displayAge($event: Event) {
-    if (this.buttonDisplayAgeClicked === true) {
-      this.buttonDisplayAgeClicked = false;
-    } else {
-      this.buttonDisplayAgeClicked = true;
-    }
+    this.showAge = !this.showAge;
   }
-
-  buttonDisplayAgeClicked = true;
 }
