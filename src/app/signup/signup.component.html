@@ -1,1 +1,85 @@
-<h1>signup works!</h1>
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+  <div>
+    <label for="firstname">Prénom</label>
+    <input
+      name="firstname"
+      type="text"
+      [(ngModel)]="user.firstname"
+      #firstname="ngModel"
+      required
+      minlength="{{ minlength }}"
+      maxlength="{{ maxlength }}"
+    />
+  </div>
+  <!-- Message d'erreurs firstname -->
+  <div *ngIf="firstname.errors && myForm.submitted">
+    <span *ngIf="firstname.errors?.required">Le prénom est requis</span>
+    <span *ngIf="firstname.errors?.minlength"
+      >Le prénom doit comporter au moins {{ minlength }} caractères
+    </span>
+    <span *ngIf="firstname.errors?.maxlength"
+      >Le prénom ne doit pas dépasser {{ maxlength }} caractères
+    </span>
+  </div>
+  <!-- FIN message d'erreurs firstname -->
+
+  <div>
+    <label for="lastname">Nom</label>
+    <input
+      name="lastname"
+      type="text"
+      [(ngModel)]="user.lastname"
+      #lastname="ngModel"
+      required
+      minlength="{{ minlength }}"
+      maxlength="{{ maxlength }}"
+    />
+  </div>
+  <!-- Message d'erreurs lastname -->
+  <div *ngIf="lastname.errors && myForm.submitted">
+    <span *ngIf="lastname.errors?.required">Le nom est requis</span>
+    <span *ngIf="lastname.errors?.minlength"
+      >Le nom doit comporter au moins {{ minlength }} caractères</span
+    >
+    <span *ngIf="lastname.errors?.maxlength"
+      >Le nom ne doit pas dépasser {{ maxlength }} caractères
+    </span>
+  </div>
+  <!-- FIN message d'erreurs lastname -->
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      name="email"
+      type="email"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      required
+      email
+    />
+  </div>
+  <!-- Message d'erreurs email -->
+  <div *ngIf="email.errors && myForm.submitted">
+    <span *ngIf="email.errors.required">Le champ email est requis</span>
+    <span *ngIf="email.errors.email">L'adresse email doit être valide</span>
+  </div>
+  <!-- FIN message d'erreurs email -->
+
+  <div>
+    <label for="password">Mot de passe </label>
+    <input
+      name="password"
+      type="password"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      required
+    />
+  </div>
+
+  <button type="reset">Restaurer</button>
+  <button type="submit">Sauvegarder</button>
+  <div *ngIf = "myForm.submitted && myForm.valid">
+    Vous êtes bien inscrit
+  </div>
+</form>
